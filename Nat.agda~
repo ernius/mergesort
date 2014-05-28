@@ -1,0 +1,54 @@
+{-# OPTIONS --sized-types #-}
+
+module Nat where
+
+open import Data.Nat hiding (pred)
+open import Size
+
+data NatLt : ℕ → Set where
+  zero : (ι : ℕ) → NatLt (suc ι)
+  succ : (ι : ℕ) → NatLt ι → NatLt (suc ι)
+
+upcast : (ι : ℕ) → NatLt ι → NatLt (suc ι)
+upcast .(suc ι) (zero ι)   = zero (suc ι)
+upcast .(suc ι) (succ ι x) = succ (suc ι) (upcast ι x)
+
+minus : (i : ℕ) → NatLt i → ℕ → NatLt i
+minus _        x          zero    = x
+minus .(suc i) (zero i)    _      = zero i
+minus .(suc i) (succ i x) (suc y) = upcast i (minus i x y)
+
+div : (i : ℕ) → NatLt i → ℕ → ℕ
+div .(suc i) (zero i)   _ = zero
+div .(suc i) (succ i x) y = suc (div i (minus i x y) y)
+
+data SNat : {ι : Size} → Set where
+  zero : {ι : Size} → SNat {↑ ι}
+  succ : {ι : Size} → SNat {ι} → SNat {↑ ι}
+
+-- -- minus' : {ι : Size} → SNat {ι} → SNat → SNat {ι}
+-- -- minus' .{↑ ι} (zero' {ι})   y         = zero' {ι}
+-- -- minus' {ι}    x             zero'     = x
+-- -- minus' .{↑ ι} (succ' {ι} x) (succ' y) = minus' {ι} x y
+
+-- -- div' : {ι : Size} → SNat {ι} → SNat → SNat {ι}
+-- -- div' .{↑ ι} (zero' {ι})   y = zero' {ι}
+-- -- div' .{↑ ι} (succ' {ι} x) y = succ' {ι} (div' {ι} (minus' x y) y)
+
+minus' : {ι : Size} → SNat {ι} → SNat → SNat {ι}
+minus' zero   y         = zero
+minus' x             zero     = x
+minus' (succ x) (succ y) = minus' x y
+
+div' : {ι : Size} → SNat {ι} → SNat → SNat {ι}
+div' (zero)   y = zero 
+div' (succ x) y = succ (div' (minus' x y) y)
+
+
+
+-- --max : Size → Size → Size
+-- --max (↑ s) (↑ s') = {! max s s'!}
+-- -- max _ ∞ = ∞
+-- -- max ∞ _ = {! ∞!}
+-- --
+
