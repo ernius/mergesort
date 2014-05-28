@@ -1,5 +1,5 @@
-mergesort
-=========
+mergesort (Case of (Quite) Painless Dependently Typed Programming: Fully Certified Merge Sort in Agda)
+======================================================================================================
 
 Merge sort correctness proof in Agda
 
