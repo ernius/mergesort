@@ -9,7 +9,7 @@ Merge sort correctness proof in Agda
 We present a version of merge sort, fully certified, in Agda. It features: syntactic warrant of termination (i.e. no need of explicit termination proof), no proof cost to ensure the output is sorted, and almost free proof that the output is a permutation of the input.
 
 ## Documentation files ##
-- **sblp2014_submission_31.pdf** - Paper explaining the development
+- **sblp2014_submission_31.pdf** - Development documetation
 
 ## Source files ##
 - **Nat.agda** - Section 2 - Natural numbers with an upper bound
