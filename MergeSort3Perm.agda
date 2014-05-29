@@ -33,7 +33,8 @@ lemma-deal []           = ∼[]r []       -- auto result
 lemma-deal (x ∷ [])     = ∼[]l (x ∷ []) -- auto result
 lemma-deal (x ∷ y ∷ xs) = ∼xl (∼xr (lemma-deal xs))
 
-lemma-merge : {ι ι′ : Size}{l : Bound A}(xs : OList {ι} l)(ys : OList {ι′} l) → forgetO (merge xs ys) ∼p' (forgetO xs , forgetO ys) 
+lemma-merge : {ι ι′ : Size}{l : Bound A}(xs : OList {ι} l)(ys : OList {ι′} l) → 
+              forgetO (merge xs ys) ∼p' (forgetO xs , forgetO ys) 
 lemma-merge onil l    = ∼[]r (forgetO l)
 lemma-merge l    onil with l
 ... | onil =  ∼[]r [] -- auto result
