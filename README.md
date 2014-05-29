@@ -18,7 +18,7 @@ We present a version of merge sort, fully certified, in Agda. It features: synta
 - **MergeSort3.agda** - Section 3 - Merge sort algorithm's correctness proof against list's sort specification
 - **Permutation.agda** - Section 3 - Permutation related stuff
 - **MergeSort4.agda** - Section 3 - Merge sort algorithm's correctness proofagainst list's sort and permutation specifications
-- **MergeSort3Perm.agda** - Section 3 - Merge sort algorithm's correctness proof against permutation specifications, not embedding algorhitm's code with the proof as in MergeSort4 file
+- **MergeSort3Perm.agda** - Section 3 - Merge sort algorithm's correctness proof against permutation specifications, not embedding algorhitm's code within the proof as in MergeSort4 file
 
 ## Agda's complier verion ##
 Agda version 2.3.2.2
