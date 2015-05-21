@@ -25,6 +25,6 @@ We present a version of merge sort, fully certified, in Agda. It features: synta
 Agda version 2.3.2.2
 Standard Library version 0.7
 
-Build status in Travis CI : [![Build Status](https://travis-ci.org/ernius/mergesort.svg?branch=master)](https://travis-ci.org/ernius/mergesort)
+## Build status in Travis CI : [![Build Status](https://travis-ci.org/ernius/mergesort.svg?branch=master)](https://travis-ci.org/ernius/mergesort) ##
 
 
