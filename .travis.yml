@@ -1,0 +1,21 @@
+language: haskell
+
+before_install:
+  - cabal install Agda-2.3.2.2  
+  - agda --version
+  - wget http://www.cse.chalmers.se/~nad/software/lib-0.7.tar.gz -O /tmp/lib-0.7.tar.gz
+  - tar -xzvf /tmp/lib-0.7.tar.gz -C /tmp/
+
+install:
+  - /bin/true
+
+script:
+  - agda -i . -i /tmp/lib-0.7/src/ MergeSort.agda
+  - agda -i . -i /tmp/lib-0.7/src/ MergeSort3.agda
+  - agda -i . -i /tmp/lib-0.7/src/ MergeSort4.agda
+  - agda -i . -i /tmp/lib-0.7/src/ MergeSort3Perm.agda
+
+
+notifications:
+  email: false
+
